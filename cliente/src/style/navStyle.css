@@ -1,0 +1,14 @@
+
+.menu{
+    background-color: rgb(12, 12, 23);
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+    color: black;
+}
+
+.active{
+font-weight: bold;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #000;
+}
