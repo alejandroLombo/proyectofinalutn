@@ -11,6 +11,7 @@ const Nav = (props) => {
                 <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/" >Home</NavLink>
                 <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/cuentasc" >Cuentas Corrientes</NavLink>
                 <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/usuarios">Usuarios</NavLink>
+                <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="http://localhost:8000/logout">Salir</NavLink>
 
             </nav>
         </>
