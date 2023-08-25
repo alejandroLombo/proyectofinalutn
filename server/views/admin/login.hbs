@@ -2,6 +2,9 @@
 <p>Hola {{nombre}} </p>
 
 {{/if}}
+ {{#if mensaje}}
+    <div class="alert">{{mensaje}}</div>
+  {{/if}}
 
 {{#unless conocido}}
 <div class="container">

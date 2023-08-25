@@ -9,7 +9,6 @@ import ClientesRouter from "./routes/ClientesRoutes.js"
 import RouterZonas from "./routes/routesZonas.js"
 import LoginRouter from "./routes/admin/login.js"
 import Contacto from "./routes/admin/contacto.js"
-import email from "./routes/admin/email.js"
 import { fileURLToPath } from 'url';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
@@ -45,7 +44,6 @@ app.use(cors())
 app.use(express.json())
 app.use('/',LoginRouter)
 app.use('/contacto',Contacto)
-app.use('/email',email)
 app.use('/home',HomeRoutes)
 app.use('/usuarios',userRoutes)
 app.use('/cc',CcRoutes)
