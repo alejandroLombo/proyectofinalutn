@@ -1,8 +1,8 @@
 //var express = require('express');
 import UserModels from "../../models/UserModels.js";
 import express from "express";
+import session from "express-session";
 var router = express.Router();
-
 //var usuariosModel = require('./../../models/usuariosModels')
 
 /* GET home page. */
@@ -22,17 +22,19 @@ router.get('/logout', function (req, res, next) {
 
 router.post('/', async (req, res) => {
   try {
-    const User = await UserModels.findAll({
+    const User = await UserModels.findOne({
       where: {
         usuario: req.body.usuario,
-        password: req.body.password
+        password: req.body.password,
       }
+      
     });
-    if (User != undefined) {
-      console.log(User);
-      //req.session.id = User.id;
-      //req.session.usuario = User.usuario;
-      res.redirect('http://localhost:3000');
+   
+    if (User !== null) {
+      //console.log(resp)
+      req.session.id_usuario = User.id;
+      req.session.usuario = User.usuario;
+      res.redirect('http://localhost:3000/');
     } else {
       res.render('admin/login', {
         layout: 'admin/layout',

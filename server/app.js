@@ -3,6 +3,7 @@ import path from "path"
 import cors from 'cors';
 import db from "./database/db.js";
 import userRoutes from "./routes/routes.js"
+import HomeRoutes from "./routes/HomeRoutes.js"
 import CcRoutes from "./routes/routesCC.js"
 import ClientesRouter from "./routes/ClientesRoutes.js"
 import RouterZonas from "./routes/routesZonas.js"
@@ -22,6 +23,13 @@ const __dirname = path.dirname(__filename);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(session({
+  secret:'klashjdfgqwur',
+  cookie: {maxAge:null},
+  resave:false,
+  saveUninitialized:true,
+}));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 app.use(express.json())
 app.use('/',LoginRouter)
+app.use('/home',HomeRoutes)
 app.use('/usuarios',userRoutes)
 app.use('/cc',CcRoutes)
 app.use('/clientes',ClientesRouter)
@@ -47,12 +56,7 @@ try {
 
 
 
-app.use(session({
-    secret:'klashjdfgqwur',
-    cookie: {maxAge:null},
-    resave:false,
-    saveUninitialized:true,
-  }));
+
   
  const secured = async(req,res,next) =>{
     try {

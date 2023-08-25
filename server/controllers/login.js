@@ -2,17 +2,17 @@ import UserModels from "../models/UserModels.js";
 
 export const getUser = async(req,res)=>{
     try {
-       const User= await UserModels.findAll({
+       const dataUser= await UserModels.findAll({
         where:{
             usuario:req.body.usuario,
             password:req.body.password
-        }
+        }  
        });
+       console.log(dataUser)
        if(data != undefined){
-        console.log(data);      
-        req.session.id_usuario = data.id;
-        req.session.nombre = data.usuario;
-        res.redirect('http://localost:3000');
+        //req.session.id_usuario = data.id;
+        //req.session.nombre = data.usuario;
+        res.redirect('http://localost:3000/home');
       }else{
         res.render('admin/login',{
           layout:'admin/layout',
