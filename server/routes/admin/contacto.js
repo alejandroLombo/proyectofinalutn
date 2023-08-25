@@ -22,15 +22,11 @@ router.route('/')
       const mail = {
         to: 'lombo.alejandro@gmail.com',
         subject: 'Contacto Web',
-        html: `${req.body.nombre} te ha enviado un mensaje y desea una respuesta a este correo electrónico ${req.body.email}<br> Con el siguiente mensaje: ${req.body.mensaje} y su teléfono es: ${req.body.telefono}`
+        html: `${req.body.nombre} te ha enviado un mensaje y desea una respuesta a este correo electrónico ${req.body.email}<br> Con el siguiente mensaje: ${req.body.textEmail} y su teléfono es: ${req.body.telefono}`
       }
 
       console.log(mail);
-
-      // Configuración y envío del correo con Nodemailer
-
-      // Renderizar la vista y enviarla como respuesta
-      res.render('admin/login', { mensaje: "Correo enviado exitosamente" });
+    res.redirect('/');
     } catch (error) {
       console.error(error);
       res.render('admin/login', { mensaje: "Error al enviar el correo",error });

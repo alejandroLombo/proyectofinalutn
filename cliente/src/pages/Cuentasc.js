@@ -19,6 +19,7 @@ export const Cuentasc = () => {
     }
     const deleteCc_sva = async (id) => {
         axios.delete(`${URI}${id}`);
+        alert('Cuenta Corriente Eliminada');
         getCc_sva();
     }
 

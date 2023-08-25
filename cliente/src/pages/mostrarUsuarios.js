@@ -18,6 +18,7 @@ export const MostrarUsuarios = () => {
     }
     const deleteUsers = async (id) => {
         axios.delete(`${URI}${id}`);
+        alert('Usuario Eliminado');
         getUsers();
     
     }
