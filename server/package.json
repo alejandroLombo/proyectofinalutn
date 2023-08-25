@@ -19,6 +19,7 @@
     "hbs": "^4.2.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.6.0",
+    "nodemailer": "^6.9.4",
     "nodemon": "^3.0.1",
     "sequelize": "^6.32.1",
     "sequelize-cli": "^6.6.1",
